@@ -1,0 +1,64 @@
+{% extends 'layouts/master.html' %}
+{% block title %}Nur Hosain Likhon | About{% endblock title %}
+{% load static %}
+{% block content %}
+
+<div class="container-bodyup">
+    <div class="container-intro">
+        <div class="heading">
+            <div class="mark-point tracking-in-expand-fwd">About me</div>
+            {% if data %}
+            <p>{{ data.about_des }}</p>
+            <p>{{ data.sub_des }}</p>
+                        
+            {% else %}
+            <p>Add somthing about you</p>
+            <p>Sub about</p>
+    
+            {% endif %}
+            
+        </div>
+        
+        {% comment %} Sevices {% endcomment %}
+        <div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h5>My Services</h5>
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+        
+            <div class="row">
+
+                {% if services %}
+
+                {% for service in services %}
+                <div class="col-lg-3 col-md-4 col-6 mt-2 pt-2">
+                    <div class="service card content-wrapper rounded border-0 shadow p-3">
+                        <div class="icon">
+                            <img src="/media/{{ service.icon }}" alt="">
+                        </div>
+                        <div class="service-content mt-2">
+                            <h5>{{ service.service_title }}</h5>
+                            <p class="text-muted fs-small">{{ service.service_des }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                {% else %}
+                <h5>Add your services</h5>
+
+
+                {% endif %}
+                
+            </div><!--end row-->
+        </div>
+        
+        {% comment %} Services end {% endcomment %}
+
+    </div>
+</div>
+
+{% endblock %}

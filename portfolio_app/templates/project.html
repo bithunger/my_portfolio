@@ -1,0 +1,76 @@
+{% extends 'layouts/master.html' %}
+{% block title %}Nur Hosain Likhon | My-Projects{% endblock title %}
+{% load static %}
+{% block content %}
+
+<style>
+    
+</style>
+
+<div class="container-bodyup">
+    <div class="container-intro">
+        <div class="heading">
+            <div class="mark-point tracking-in-expand-fwd">My Projects</div>
+            {% if des %}
+            <p>{{ des.project_des }}</p>
+                        
+            {% else %}
+            <p>Add project description</p>
+    
+            {% endif %}
+        </div>
+
+        <div class="projects">
+
+            {% if projects %}
+
+            {% for project in projects %}
+
+            {% if forloop.counter0|divisibleby:2 %}
+            <div class="context">
+                <span class="attach"><i class="fa fa-paperclip" aria-hidden="true"></i></span>
+                <div class="rounded shadow text-box left-context">
+                    <img src="/media/{{ project.img }}" alt="">
+                    <div class="view mt-3">
+                        <small>{{ project.project_title }}</small>
+                        <a href="{{ project.link }}">View</a>
+                    </div>
+                    <span class="left-context-arrow"></span>
+                </div>
+            </div>
+            {% else %}
+            <div class="context">
+                <span class="attach"><i class="fa fa-paperclip" aria-hidden="true"></i></span>
+                <div class="rounded shadow text-box right-context">
+                    <img src="/media/{{ project.img }}" alt="">
+                    <div class="view mt-3">
+                        <small>{{ project.project_title }}</small>
+                        <a href="{{ project.link }}">View</a>
+                    </div>
+                    <span class="right-context-arrow"></span>
+                </div>
+            </div>
+            {% endif %}
+
+            {% endfor %}
+            
+            {% else %}
+            <div class="context">
+                <span class="attach"><i class="fa fa-paperclip" aria-hidden="true"></i></span>
+                <div class="rounded shadow text-box left-context">
+                    <div>
+                        <small>Add your projects</small>
+                    </div>
+                    <span class="left-context-arrow"></span>
+                </div>
+            </div>
+
+            {% endif %}
+            
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}
+

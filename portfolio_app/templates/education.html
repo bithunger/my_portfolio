@@ -1,0 +1,38 @@
+{% extends 'layouts/master.html' %}
+{% block title %}Nur Hosain Likhon | Education{% endblock title %}
+{% load static %}
+{% block content %}
+
+<div class="container-bodyup">
+    <div class="container-intro">
+        <div class="heading">
+            <div class="mark-point tracking-in-expand-fwd">Educational Qualification</div>
+        </div>
+
+        <div class="content">
+            {% if data %}
+
+            {% for edu in data %}
+            <div class="box content-wrapper rounded shadow">
+                <h4>{{ edu.level_name }}</h4>
+                <h5>{{ edu.session }}</h5>
+                <h6>{{ edu.institute_name }}</h6>
+                <p>{{ edu.result }}</p>
+            </div>
+            {% endfor %}
+            
+            {% else %}
+            <div class="box content-wrapper rounded shadow">
+                <h4>Add your educational details</h4>
+            </div>
+
+            {% endif %}
+        </div>
+        
+        
+
+    </div>
+</div>
+
+{% endblock %}
+

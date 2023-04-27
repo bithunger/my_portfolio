@@ -1,0 +1,98 @@
+{% extends 'layouts/master.html' %}
+{% block title %}Nur Hosain Likhon | Contact-Us{% endblock title %}
+{% load static %}
+{% block content %}
+
+<div class="container-bodyup">
+    <div class="container-intro">
+        <div class="heading">
+            <div class="mark-point tracking-in-expand-fwd">Get in Touch</div>
+        </div>
+
+        <div class="contact">
+            <div class="contact-details">
+                <div class="contact-block">
+                    <div class="media-body">
+                        <h6><i class="fa fa-envelope"></i> Email</h6>
+                        {% if data %}
+                        <p><a href="mailto:{{ data.email }}">{{ data.email }}</a></p>
+                        {% else %}
+                        <p><a>Your email</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- /.contact-block -->
+                <div class="contact-block">
+                    <div class="media-body">
+                        <h6><i class="fa fa-phone-square"></i> Phone</h6>
+                        {% if data %}
+                        <p><a href="tel:+88{{ data.phone }}">+88{{ data.phone }}</a></p>
+                        {% else %}
+                        <p><a>Your Phone</a></p>
+                        {% endif %}
+                        
+                    </div>
+                </div>
+                <!-- /.contact-block -->
+                <div class="contact-block">
+                    <div class="media-body">
+                        <h6><i class="fa fa-whatsapp"></i> Whatsapp</h6>
+                        {% if data %}
+                        <p><a href="tel:+88{{ data.phone }}">+88{{ data.phone }}</a></p>
+                        {% else %}
+                        <p><a>Your whatsapp</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- /.contact-block -->
+                <div class="contact-block">
+                    <div class="media-body">
+                        <h6><i class="fa fa-home"></i> Address</h6>
+                        {% if data %}
+                        <p><a disabled ><b>{{ data.address }}</b></a></p>
+                        {% else %}
+                        <p><a>Your address</a></p>
+                        {% endif %}
+                        
+                    </div>
+                </div>
+                <!-- /.contact-block -->
+
+            </div>
+            <div class="">
+                <div class="section-title clear">
+                    <h6>Send me a meesage</h6>
+                </div>
+
+                <form id="contact-form" class="row contact-form" action="#" method="post">
+                    <div class="input col-xs-12 col-sm-6">
+                        <input type="text" class="form-control rounded shadow" placeholder="Enter your name" required>
+                    </div> <!-- ./col- -->
+
+                    <div class="input col-xs-12 col-sm-6">
+                        <input type="email" class="form-control rounded shadow" name="email" placeholder="Your email address"
+                                required>
+                    </div> <!-- ./col- -->
+
+                    <div class="input col-xs-12 col-sm-12">
+                        <textarea name="message" id="message" class="form-control rounded shadow" placeholder="Write your message"
+                                required></textarea>
+                    </div> <!-- ./col- -->
+
+                    <div class="input col-xs-12 col-sm-12">
+                        <button type="submit" style="width: 100%" class="bt text-uppercase">Send Message</button>
+                    </div> <!-- ./col- -->
+                    
+                    <div class="msg-success">Your Message was sent successfully</div>
+                    <div class="msg-failed">Something went wrong, please try again later</div>
+
+                </form> <!-- /.row -->
+            </div> <!-- /.col- -->
+        </div> <!-- /.row -->
+
+
+
+    </div>
+</div>
+
+{% endblock %}

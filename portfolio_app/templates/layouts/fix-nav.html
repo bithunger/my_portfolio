@@ -1,0 +1,42 @@
+<header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            {% if settingsData %}
+            <a class="navbar-brand" href="{% url 'home' %}"><h4><strong>{{ settingsData.logo_name }}</strong></h4></a>
+            
+            {% else %}
+            <a class="navbar-brand" href="{% url 'home' %}"><h6>Add Logo name</h6></a>
+
+            {% endif %}
+            
+            <img src="/media/icons/menu.png" alt="" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive" width="30" height="30"
+                class="bi bi-menu-up d-lg-none">
+
+            <div class="offcanvas-lg offcanvas-end" tabindex="-1" id="offcanvasResponsive"
+                aria-labelledby="offcanvasResponsiveLabel">
+                <div class="offcanvas-header mt-2 mb-5">
+                    <div class="">
+                        <h6 class="offcanvas-title" id="offcanvasResponsiveLabel">M E N U</h6>
+                    </div>
+                    <button type="button" class="btn-close bg-white" data-bs-dismiss="offcanvas"
+                        data-bs-target="#offcanvasResponsive" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="navbar-nav">
+                        <a class="nav-link nav-css {% if request.path == '/' %}active{% endif %}"
+                            href="{% url 'home' %}">Home</a>
+                        <a class="nav-link nav-css {% if request.path == '/about/' %}active{% endif %}"
+                            href="{% url 'about' %}">About</a>
+                        <a class="nav-link nav-css {% if request.path == '/projects/' %}active{% endif %}" href="{% url 'projects' %}">Projects</a>
+                        <a class="nav-link nav-css {% if request.path == '/education/' %}active{% endif %}" href="{% url 'education' %}">Education</a>
+                        <a class="nav-link nav-css {% if request.path == '/skills/' %}active{% endif %}" href="{% url 'skills' %}">Skills</a>
+                        <a class="nav-link nav-css {% if request.path == '/contact-us/' %}active{% endif %}" href="{% url 'contact' %}">Contact</a>
+                        <!-- <div class="home-animation start-home"></div> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,53 @@
+{% extends 'layouts/master.html' %}
+{% block title %}Nur Hosain Likhon | Home{% endblock title %}
+{% load static %}
+{% block content %}
+
+<div class="container-bodyup">
+    <div class="container-home">
+        <div class="row">
+            <div class="col col-intro1">
+                <h1 class="name tracking-in-expand-fwd">Hello I'm<br>
+                    {% if data %}
+                    {{ data.name }}
+                    
+                    {% else %}
+                    Add your name
+
+                    {% endif %}
+                </h1>
+                <div class="devider tracking-in-expand-fwd"></div>
+                <div class="mb-5">
+                    <p class="w-75 text-justify">
+                        {% if data %}
+                        {{ data.description }}
+                        
+                        {% else %}
+                        Your short description
+    
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="get-touch">
+                    <button class="bt" onclick="location.href='{% url 'contact' %}';">
+                        <span>Get in Touch</span>
+                    </button>
+                    <button  class="bt" onclick="location.href='{{ data.cv }}';" type="button">
+                        <span>DOWNLOAD CV</span>
+                    </button>
+                </div>
+            </div>
+            
+            {% if data %}
+            <img class="me col-intro2" src="/media/{{ data.img }}" alt="not found">
+                    
+            {% else %}
+            <img class="me col-intro2" src="#" alt="Add your Image">
+
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
