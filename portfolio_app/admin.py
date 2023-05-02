@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Home, About, Project, ProjectDetails, Education, Skill, SkillAttribute, Settings, Service
+from .models import Home, About, Project, ProjectDetails, Education, Skill, SkillAttribute, Settings, Service, Contact
 
 class HomeAdmin(admin.ModelAdmin):
     list_display = ('name', 'description', 'image', 'cv')
@@ -36,5 +36,9 @@ admin.site.register(SkillAttribute, SkillAttributeAdmin)
 class  SettingsAdmin(admin.ModelAdmin):
     list_display = ('logo_name', 'img', 'email', 'phone', 'whatsapp', 'address', 'facebook', 'linkedin', 'github')
 admin.site.register(Settings, SettingsAdmin)
+
+class  ContactAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'message')
+admin.site.register(Contact, ContactAdmin)
 
 # Register your models here.

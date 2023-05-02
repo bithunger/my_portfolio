@@ -65,4 +65,10 @@ class Settings(models.Model):
     def img(self):
         return mark_safe('<img src="/media/%s" width=50px; height: 50px />' % (self.icon))
     
+
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    message = models.TextField()
+    
 # Create your models here.
